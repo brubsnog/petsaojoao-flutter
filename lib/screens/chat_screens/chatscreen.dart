@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:chatsaojoao/utils/utils.dart';
+import 'package:petsaojoao-flutter/models/utils_chat/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,14 +13,14 @@ void main() async {
 }
 
 final ThemeData kIOSTheme = ThemeData(
-  primarySwatch: Colors.orange,
-  primaryColor: Colors.grey[100],
+  primarySwatch: Colors.blue,
+  primaryColor: Colors.blueAccent[200],
   primaryColorBrightness: Brightness.light,
 );
 
 final ThemeData kDefaultTheme = ThemeData(
-  primarySwatch: Colors.purple,
-  accentColor: Colors.orangeAccent[400],
+  primarySwatch: Colors.blue,
+  accentColor: Colors.blueAccent[400],
 );
 
 final auth = FirebaseAuth.instance;
@@ -62,7 +62,7 @@ class ChatScreen extends StatefulWidget {
   _ChatScreenState createState() => _ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ChatScreenState extends State<ChatScreen> { //essa primeira classe é responsável por exibir as outras duas
 
   
 
@@ -113,7 +113,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             itemCount: snapshot.data.documents.length,
                             itemBuilder: (context, index) {
                               List r = snapshot.data.documents.reversed.toList();
-                              return ChatMessage(r[index].data);
+                              return ChatMessage(r[index].data); // essa classe é responsável pela verificação de dados e exibe em forma de lista
                             }
                         );
                     }
@@ -136,7 +136,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 }
 
-class TextComposer extends StatefulWidget {
+class TextComposer extends StatefulWidget { // essa classe é responsável por enviar as mensagens
   @override
   _TextComposerState createState() => _TextComposerState();
 }
@@ -219,7 +219,7 @@ class _TextComposerState extends State<TextComposer> {
   }
 }
 
-class ChatMessage extends StatelessWidget {
+class ChatMessage extends StatelessWidget { // essa classe é responsável por exibir as mensagens
 
   final Map<String, dynamic> data;
 

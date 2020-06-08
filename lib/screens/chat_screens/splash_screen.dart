@@ -1,5 +1,5 @@
-import 'package:chatsaojoao/utils/utils.dart';
-import 'package:chatsaojoao/views/chatscreen.dart';
+import 'package:petsaojoao-flutter/models/utils_chat/utils.dart';
+import 'package:petsaojoao-flutter/screens/chat_screens/chatscreen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  @override
+  @override // a splash screen apos 4 segundos manda o usuário para chatscreen
   void initState() {
     super.initState();
     Future.delayed(Duration(
